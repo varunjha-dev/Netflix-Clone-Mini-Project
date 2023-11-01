@@ -1,0 +1,67 @@
+/* Normalise in CSS */
+html,
+body {
+  background-color: rgb(21, 21, 21);
+  padding: 0;
+  margin: 0;
+  font-family: helvetica, Arial, sans-serif;
+}
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+/*Header of CSS*/
+header {
+  background-color: transparent;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: all ease 600ms;
+}
+.header-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left-cont,
+.right-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header-brand {
+  max-width: 120px;
+  cursor: pointer;
+}
+.main-nav {
+  list-style: none;
+  display: inline-flex;
+  flex-direction: row;
+}
+.nav-item {
+  color: rgb(229, 229, 229);
+  margin-right: 21px;
+  opacity: 0.84;
+  cursor: pointer;
+}
+.nav-item.active {
+  color: azure;
+  opacity: 1;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.right-cont img {
+  max-width: 36px;
+  margin-right: 21px;
+  cursor: pointer;
+}
+/*Responsive Section*/
+@media (max-width: 48em) {
+  .main-nav {
+    display: none;
+  }
+}
