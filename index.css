@@ -75,9 +75,11 @@ header {
 .explore-slide {
   color: #54b9c5;
   font-size: 0.6em;
-  display: none;
+  display: none; /* Initially hide the element */
 }
-
+.movie-section-heading:hover .explore-slide {
+  display: inline-block;
+}
 /*Responsive Section*/
 @media (max-width: 48em) {
   .main-nav {
