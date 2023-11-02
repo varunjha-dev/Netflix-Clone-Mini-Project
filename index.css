@@ -8,10 +8,10 @@ body {
 }
 .container {
   width: 100%;
-  max-width: 1260px;
+  max-width: 80em;
   margin: 0 auto;
 }
-/*Header of CSS*/
+/*Start of Header CSS*/
 header {
   background-color: transparent;
   position: fixed;
@@ -55,10 +55,29 @@ header {
 }
 
 .right-cont img {
-  max-width: 36px;
-  margin-right: 21px;
+  max-width: 2.21em;
+  margin-right: 1.2em;
   cursor: pointer;
 }
+/* End of Header CSS*/
+/* Start of Movies Section CSS*/
+.movies-section {
+  margin: 3.9em 0;
+}
+.movie-section-heading {
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1.5em;
+}
+.explore-slide {
+  color: #54b9c5;
+  font-size: 0.6em;
+  display: none;
+}
+
 /*Responsive Section*/
 @media (max-width: 48em) {
   .main-nav {
