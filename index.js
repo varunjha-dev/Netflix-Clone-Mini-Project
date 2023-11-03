@@ -35,9 +35,16 @@ function fetchAndbuildMovieSection(fetchUrl, category) {
   fetch(fetchUrl)
     .then((res) => res.json())
     .then((res) => {
-      console.log(res.results);
+      // console.log(res.results);
+      const movies = res.results;
+      if (Array.isArray(movies) && movies.length) {
+        buildMoviesSection(movies, category.name);
+      }
     })
     .catch((err) => console.error(err));
+}
+function buildMoviesSection(list, categoryName) {
+  console.log(list, categoryName);
 }
 
 window.addEventListener("load", function () {

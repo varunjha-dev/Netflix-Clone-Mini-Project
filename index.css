@@ -80,6 +80,22 @@ header {
 .movie-section-heading:hover .explore-slide {
   display: inline-block;
 }
+.movies-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.movie-item {
+  width: 15em;
+  height: 12em;
+  object-fit: contain;
+  margin-right: 6px;
+  border-radius: 1em;
+}
+.movie-item:hover {
+  transform: scale(1.3);
+  transition: transform linear 300ms;
+}
 /*Responsive Section*/
 @media (max-width: 48em) {
   .main-nav {
