@@ -75,18 +75,19 @@ function fetchAndBuildAllSections() {
 }
 
 // Fetch movies for a category and build a section
-function fetchAndbuildMovieSection(fetchUrl, categoryName) {
+async function fetchAndbuildMovieSection(fetchUrl, categoryName) {
   console.log(fetchUrl, categoryName);
-  return fetch(fetchUrl)
-    .then((res) => res.json())
-    .then((res) => {
-      const movies = res.results;
-      if (Array.isArray(movies) && movies.length) {
-        buildMoviesSection(movies.slice(0, 6), categoryName);
-      }
-      return movies;
-    })
-    .catch((err) => console.error(err));
+  try {
+    const res = await fetch(fetchUrl);
+    const res_1 = await res.json();
+    const movies = res_1.results;
+    if (Array.isArray(movies) && movies.length) {
+      buildMoviesSection(movies.slice(0, 6), categoryName);
+    }
+    return movies;
+  } catch (err) {
+    return console.error(err);
+  }
 }
 // Build the movie section for a category
 function buildMoviesSection(list, categoryName) {
@@ -132,7 +133,7 @@ function searchMovieTrailer(movieName, iframeId) {
       console.log(elements, iframeId);
 
       const div = document.createElement("div");
-      div.innerHTML = `<iframe width="300px" height="150px" src="https://www.youtube.com/embed/${bestResult.id.videoId}?autoplay=1&controls=0"></iframe>`;
+      div.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${bestResult.id.videoId}?autoplay=1&controls=0"></iframe>`;
 
       elements.append(div);
     })
