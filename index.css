@@ -112,9 +112,11 @@ header.black-bg {
 
 .movie-item {
   width: 18em;
+  height: 100%;
   object-fit: contain;
   margin-right: 6px;
   border-radius: 1em;
+  object-fit: contain;
 }
 .move-item-img {
   width: inherit;
