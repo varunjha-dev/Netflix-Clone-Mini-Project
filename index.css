@@ -117,6 +117,7 @@ header.black-bg {
   margin-right: 6px;
   border-radius: 1em;
   object-fit: contain;
+  transition: transform 0.5s ease-in-out;
 }
 .move-item-img {
   width: inherit;
@@ -140,7 +141,16 @@ header.black-bg {
 
 .movie-item:hover {
   transform: scale(1.2);
-  transition: transform linear 300ms;
+}
+
+.movie-item.expanded {
+  transform: scale(0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
 }
 
 /* Banner Section CSS */
