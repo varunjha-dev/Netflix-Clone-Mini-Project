@@ -98,7 +98,7 @@ function buildMoviesSection(list, categoryName) {
   const moviesListHTML = list
     .map((item) => {
       return `
-        <div class="movie-item" onmouseenter="searchMovieTrailer('${item.title}', 'yt${item.id}')">
+        <div class="movie-item" onclick="searchMovieTrailer('${item.title}', 'yt${item.id}')">
             <img class="move-item-img" src="${imgPath}${item.backdrop_path}" alt="${item.title}" />
             <div class="iframe-wrap" id="yt${item.id}"></div>
         </div>`;
@@ -129,15 +129,25 @@ function searchMovieTrailer(movieName, iframeId) {
     .then((res) => {
       const bestResult = res.items[0];
 
-      const elements = document.getElementById(iframeId);
-      console.log(elements, iframeId);
+      const movieItem = document.getElementById(iframeId).parentElement;
+      const isExpanded = movieItem.classList.contains("expanded");
 
+      if (!isExpanded) {
+        movieItem.classList.add("expanded");
+      }
+
+      const elements = document.getElementById(iframeId);
       const div = document.createElement("div");
-      div.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${bestResult.id.videoId}?autoplay=1&controls=0"></iframe>`;
+      div.innerHTML = `<iframe width="1290px" height="600px" src="https://www.youtube.com/embed/${bestResult.id.videoId}?autoplay=1&controls=0"></iframe>`;
 
       elements.append(div);
+
+      movieItem.addEventListener("click", () => {
+        movieItem.classList.remove("expanded");
+        div.remove();
+      });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 }
 
 // Event listener for page load and header UI update on scroll
@@ -149,4 +159,22 @@ window.addEventListener("load", function () {
     if (window.scrollY > 5) header.classList.add("black-bg");
     else header.classList.remove("black-bg");
   });
+});
+//  for closing expanded movie items and trailers
+const trailerIframes = document.querySelectorAll(".iframe-wrap iframe");
+const movieItems = document.querySelectorAll(".movie-item");
+
+document.addEventListener("click", function (event) {
+  const isOutsideTrailer = !event.target.closest(".iframe-wrap");
+  const isOutsideMovieItem = !event.target.closest(".movie-item");
+
+  if (isOutsideTrailer && isOutsideMovieItem) {
+    const expandedMovieItem = document.querySelector(".movie-item.expanded");
+
+    if (expandedMovieItem) {
+      expandedMovieItem.classList.remove("expanded");
+      const iframeWrap = expandedMovieItem.querySelector(".iframe-wrap");
+      iframeWrap.removeChild(iframeWrap.lastElementChild); // Remove trailer iframe
+    }
+  }
 });
