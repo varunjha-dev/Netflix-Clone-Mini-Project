@@ -4,6 +4,7 @@ const apiEndpoint = "https://api.themoviedb.org/3";
 const imgPath = "https://image.tmdb.org/t/p/original";
 
 const apiPaths = {
+  // API endpoints for various requests
   fetchAllCategories: `${apiEndpoint}/genre/movie/list?api_key=${apikey}`,
   fetchMoviesList: (id) =>
     `${apiEndpoint}/discover/movie?api_key=${apikey}&with_genres=${id}`,
@@ -22,6 +23,7 @@ function init() {
 function fetchTrendingMovies() {
   fetchAndbuildMovieSection(apiPaths.fetchTrending, "Trending Now")
     .then((list) => {
+      // Display a random movie from the trending list in the banner
       const randomIndex = parseInt(Math.random() * list.length);
       buildBannerSection(list[randomIndex]);
     })
@@ -82,6 +84,7 @@ async function fetchAndbuildMovieSection(fetchUrl, categoryName) {
     const res_1 = await res.json();
     const movies = res_1.results;
     if (Array.isArray(movies) && movies.length) {
+      // Build the movie section for the category
       buildMoviesSection(movies.slice(0, 6), categoryName);
     }
     return movies;
@@ -89,6 +92,7 @@ async function fetchAndbuildMovieSection(fetchUrl, categoryName) {
     return console.error(err);
   }
 }
+
 // Build the movie section for a category
 function buildMoviesSection(list, categoryName) {
   console.log(list, categoryName);
@@ -116,7 +120,7 @@ function buildMoviesSection(list, categoryName) {
   div.className = "movies-section";
   div.innerHTML = moviesSectionHTML;
 
-  // append html into movies container
+  // Append html into movies container
   moviesCont.append(div);
 }
 
@@ -154,13 +158,13 @@ function searchMovieTrailer(movieName, iframeId) {
 window.addEventListener("load", function () {
   init();
   window.addEventListener("scroll", function () {
-    // header ui update
+    // Header UI update on scroll
     const header = document.getElementById("header");
     if (window.scrollY > 5) header.classList.add("black-bg");
     else header.classList.remove("black-bg");
   });
 });
-//  for closing expanded movie items and trailers
+// Event listener for closing expanded movie items and trailers
 const trailerIframes = document.querySelectorAll(".iframe-wrap iframe");
 const movieItems = document.querySelectorAll(".movie-item");
 

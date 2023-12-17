@@ -1,42 +1,51 @@
 /* Normalize CSS */
 html,
 body {
+  /* Set background color and remove default padding and margin */
   background-color: rgb(21, 21, 21);
   padding: 0;
   margin: 0;
+  /* Set the default font family */
   font-family: helvetica, Arial, sans-serif;
 }
 
 .container {
+  /* Set the container width and center it on the page */
   width: 100%;
   max-width: 80em;
   margin: 0 auto;
 }
 
 * {
+  /* Box sizing set to border-box for all elements */
   box-sizing: border-box;
 }
 
 *::-webkit-scrollbar {
+  /* Hide the scrollbar in webkit browsers */
   display: none;
 }
 
 /* Header CSS */
 header {
+  /* Set initial styles for the header */
   background-color: transparent;
   position: fixed;
   z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
+  /* Add transition effect for smooth color change */
   transition: all ease 600ms;
 }
 
 header.black-bg {
+  /* Change header background color when scrolled */
   background-color: rgb(21, 21, 21);
 }
 
 .header-cont {
+  /* Style for header container */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -44,22 +53,26 @@ header.black-bg {
 
 .left-cont,
 .right-cont {
+  /* Style for left and right sections of the header */
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .header-brand {
+  /* Style for the Netflix brand image in the header */
   max-width: 120px;
 }
 
 .main-nav {
+  /* Style for the main navigation menu */
   list-style: none;
   display: inline-flex;
   flex-direction: row;
 }
 
 .nav-item {
+  /* Style for each navigation item */
   margin-right: 20px;
   color: rgb(228, 228, 228);
   opacity: 0.84;
@@ -67,22 +80,28 @@ header.black-bg {
 }
 
 .nav-item.active {
+  /* Style for the active navigation item */
   color: azure;
   opacity: 1;
   font-weight: 500;
   cursor: pointer;
 }
+
 .right-cont img {
+  /* Style for the icons in the right section of the header */
   max-width: 2.21em;
   margin-right: 1.2em;
   cursor: pointer;
 }
+
 /* Movies Section CSS */
 .movies-section {
+  /* Style for the movies section */
   margin: 3.9em 0;
 }
 
 .movie-section-heading {
+  /* Style for the heading of the movie section */
   font-size: 1.2em;
   font-weight: 700;
   line-height: 1.2;
@@ -92,16 +111,19 @@ header.black-bg {
 }
 
 .explore-nudge {
+  /* Style for the explore nudge text */
   color: #54b9c5;
   font-size: 0.6em;
   display: none;
 }
 
 .movie-section-heading:hover .explore-nudge {
+  /* Display explore nudge on hover */
   display: inline-block;
 }
 
 .movies-row {
+  /* Style for the row of movie items */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -111,19 +133,24 @@ header.black-bg {
 }
 
 .movie-item {
+  /* Style for each movie item */
   width: 18em;
   height: 100%;
   object-fit: contain;
   margin-right: 6px;
   border-radius: 1em;
   object-fit: contain;
+  /* Add transition effect for scaling on hover */
   transition: transform 0.5s ease-in-out;
 }
+
 .move-item-img {
+  /* Style for the movie item image */
   width: inherit;
 }
 
 .movie-item .iframe-wrap {
+  /* Style for the iframe wrapper within each movie item */
   position: absolute;
   top: 0;
   left: 0;
@@ -136,14 +163,17 @@ header.black-bg {
 }
 
 .movie-item:hover .iframe-wrap {
+  /* Display iframe wrapper on hover */
   display: block;
 }
 
 .movie-item:hover {
+  /* Scale up the movie item on hover */
   transform: scale(1.2);
 }
 
 .movie-item.expanded {
+  /* Style for expanded movie item */
   transform: scale(0.6);
   position: fixed;
   top: 0;
@@ -155,6 +185,7 @@ header.black-bg {
 
 /* Banner Section CSS */
 .banner-section {
+  /* Style for the banner section */
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 98vh;
@@ -163,12 +194,14 @@ header.black-bg {
 }
 
 .banner-content {
+  /* Style for the content within the banner */
   display: flex;
   flex-direction: column;
   padding-top: 70px;
 }
 
 .banner__title {
+  /* Style for the banner title */
   color: white;
   font-size: 84px;
   line-height: 1.1;
@@ -178,6 +211,7 @@ header.black-bg {
 }
 
 .banner__info {
+  /* Style for the banner information */
   margin-bottom: 14px;
   font-size: 22px;
   font-weight: 700;
@@ -186,6 +220,7 @@ header.black-bg {
 }
 
 .banner__overview {
+  /* Style for the banner overview text */
   font-size: 16.4px;
   color: white;
   line-height: 1.3;
@@ -193,12 +228,14 @@ header.black-bg {
 }
 
 .action-buttons-cont {
+  /* Style for the container of action buttons */
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .action-button {
+  /* Style for each action button */
   border: none;
   background-color: white;
   padding: 8px 23px;
@@ -213,11 +250,13 @@ header.black-bg {
 }
 
 .action-button:last-child {
+  /* Style for the last action button */
   background-color: rgba(109, 109, 110, 0.7);
   color: white;
 }
 
 .banner_fadeBottom {
+  /* Style for the fading effect at the bottom of the banner */
   height: 120px;
   background: linear-gradient(
     180deg,
@@ -233,11 +272,13 @@ header.black-bg {
 
 /* Responsive CSS */
 @media (max-width: 767px) {
+  /* Responsive styles for screens smaller than 767px */
   .main-nav {
     display: none;
   }
   .banner__overview,
   .banner__title {
+    /* Adjust max-width for responsive banner text */
     max-width: 100%;
   }
 }
