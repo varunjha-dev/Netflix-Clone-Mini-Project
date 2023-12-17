@@ -181,6 +181,7 @@ header.black-bg {
   width: 100vw;
   height: 100vh;
   z-index: 100;
+  overflow: auto;
 }
 
 /* Banner Section CSS */
@@ -279,6 +280,11 @@ header.black-bg {
   .banner__overview,
   .banner__title {
     /* Adjust max-width for responsive banner text */
-    max-width: 100%;
+    width: 100vw;
+  }
+  .movie-item.expanded {
+    width: 100vw;
+    height: 100vh;
+    transform: scale(0.8); /* Adjust scale for smaller screens if needed */
   }
 }
