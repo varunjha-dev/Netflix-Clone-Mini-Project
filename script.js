@@ -58,7 +58,7 @@ function checkCredentials(username, password) {
 
             // Redirect to Netflix Clone project after a delay
             setTimeout(() => {
-              window.location.href = "index.html";
+              window.location.href = "clone.html";
             }, 17000); // Adjust the delay as needed (17000 milliseconds = 17 seconds)
           } else {
             document.getElementById("errorMsg").innerText =
