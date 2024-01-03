@@ -10,8 +10,6 @@ function validateLogin() {
   checkCredentials(username, password);
 }
 
-// ... (Your existing JavaScript code)
-
 function hideLoginContainer() {
   const loginContainer = document.getElementById("loginContainer");
   loginContainer.style.display = "none";
