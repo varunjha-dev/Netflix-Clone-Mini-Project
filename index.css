@@ -87,8 +87,10 @@ header.black-bg {
   cursor: pointer;
 }
 
-.right-cont img {
-  /* Style for the icons in the right section of the header */
+.right-cont img,
+.right-cont svg {
+  /* Style for the icons (both SVG and IMG) in the right section */
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
   max-width: 2.21em;
   margin-right: 1.2em;
   cursor: pointer;

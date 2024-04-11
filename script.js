@@ -1,10 +1,22 @@
-// Replace with your Google Sheets API key and spreadsheet ID
+//Google Sheets API key and spreadsheet ID
 const apiKey = "AIzaSyDXc_F8RzkI_uaXwo8KGqIL-UE_2YlxjEU";
 const spreadsheetId = "1jGCVs8NBXGWelNcGL0cV6JAjoe70KznEUtt4Qw2IWHs";
+
+function validatePassword(password) {
+  // Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters
+  return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password);
+}
 
 function validateLogin() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+
+  // Validate password format
+  if (!validatePassword(password)) {
+    document.getElementById("errorMsg").innerText =
+      "Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters.";
+    return;
+  }
 
   // Call the Google Sheets API to check credentials
   checkCredentials(username, password);
@@ -17,15 +29,12 @@ function hideLoginContainer() {
 
 function showTransition() {
   const transitionVideo = document.getElementById("transitionVideo");
-  const transitionSound = document.getElementById("transitionSound");
 
   // Show transition elements
   transitionVideo.style.display = "block";
-  transitionSound.style.display = "block";
 
   // Play transition video and sound
   transitionVideo.play();
-  transitionSound.play();
 }
 
 function checkCredentials(username, password) {
@@ -54,10 +63,10 @@ function checkCredentials(username, password) {
             // Show transition video and sound
             showTransition();
 
-            // Redirect to Netflix Clone project after a delay
+            // Redirect to Netflix Clone project
             setTimeout(() => {
               window.location.href = "clone.html";
-            }, 17000); // Adjust the delay as needed (17000 milliseconds = 17 seconds)
+            }, 5000);
           } else {
             document.getElementById("errorMsg").innerText =
               "Invalid credentials.";
@@ -70,7 +79,7 @@ function checkCredentials(username, password) {
   });
 }
 function validateUser(data, username, password) {
-  // Assuming the sheet structure is: | Username | Password |
+  // The sheet structure is: | Username | Password |
   for (let i = 1; i < data.length; i++) {
     const storedUsername = data[i][0];
     const storedPassword = data[i][1];
