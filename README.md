@@ -120,6 +120,6 @@ To contribute to this project, please follow the steps below:
 
 For more information, queries, or collaboration, feel free to connect with me:
 
-- [Linkedin](https://www.linkedin.com/in/varun-jha-a76067294/)
+- [Linkedin](www.linkedin.com/in/varunjha-dev)
 
 - [Email](varunjha.dev@gmail.com)
