@@ -1,4 +1,4 @@
-/* Normalize CSS */
+/* Global and Reset Styles */
 html,
 body {
   /* Set background color and remove default padding and margin */
@@ -9,15 +9,18 @@ body {
   font-family: helvetica, Arial, sans-serif;
 }
 
+/* Layout */
 .container {
   /* Set the container width and center it on the page */
-  width: 100%;
   max-width: 80em;
   margin: 0 auto;
+  width: 100%;
 }
 
-* {
-  /* Box sizing set to border-box for all elements */
+*,
+*::before,
+*::after {
+  /* Box sizing set to border-box for all elements (Modified)*/
   box-sizing: border-box;
 }
 
